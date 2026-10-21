@@ -6,8 +6,7 @@ Fórmula o relación: Tiempo en segundos T = 60 * minutos + segundos + centésim
 
 """
 
-r=0
-mins=0
+menort = 0
 
 N = int(input("Ingrese el N de ciclistas: "))
 
@@ -15,9 +14,26 @@ if 1 <= N <= 20:
     for r in range(1,N+1):
         id = int(input("identificador ciclista "))
         mins= int(input("minutos ciclista "+str(id)+str(": ")))
-        segundos = int(input("segundos ciclista "+str(id)+str(": ")))
-        centesimas = int(input("centesimas ciclista "+str(id)+str(": ")))
-        if id > 0 and 
-        
+        segs = int(input("segundos ciclista "+str(id)+str(": ")))
+        cents = int(input("centesimas ciclista "+str(id)+str(": ")))
+
+        if id > 0 and mins >= 0 and 0 <= segs <= 59 and 0 <= cents <= 99:
+            t = 60 * mins + segs + cents / 100
+
+            if t > 0:    
+                v = 900/t
+                print("ciclista ",id,": ",v,"km/h")
+
+            if menort == 0 or t < menort:
+                menort = t
+                ganador = id
+
+    print("Ganador:", ganador)
+
+
+
+
+
+
 
 
